@@ -1,0 +1,236 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "[python]": {
+            "editor.defaultFormatter": "ms-python.black-formatter",
+            "editor.formatOnSave": true,
+            "editor.rulers": [
+                80,
+                88,
+                120,
+            ],
+        },
+        "[django-html]": {
+            "editor.tabSize": 4,
+            "editor.insertSpaces": true,
+        },
+        "[html]": {
+            "editor.tabSize": 4,
+            "editor.insertSpaces": true,
+        },
+        "files.associations": {
+            "*.code-workspace.dist": "jsonc",
+        },
+        "python.analysis.inlayHints.callArgumentNames": "all",
+        "python.analysis.inlayHints.functionReturnTypes": true,
+        "python.analysis.inlayHints.pytestParameters": true,
+        "python.analysis.inlayHints.variableTypes": true,
+        "python.analysis.typeCheckingMode": "off",
+        "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.terminal.activateEnvironment": false,
+        "todo-tree.tree.scanMode": "workspace only",
+        "files.readonlyInclude": {
+            "**/.venv/*/**": true
+        },
+        "css.styleSheets": [
+            // Jangan LUPA UPDATE JUGA YANG DI `base_v_2.html`
+            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css",
+            // ^BootstrapLink^ , for easy update
+            "/static/style_v_1.css",
+            // "style.css",
+            "${fileBasenameNoExtension}.css",
+            // All relative paths will be evaluated relative to the file being edited.
+            // `${fileBasenameNoExtension}` will be replaced with the file name of the
+            // file being edited without extension.
+            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
+            // ^Select2Link^ , for easy update
+        ],
+        // new settings below
+        "git.showActionButton": {
+            "commit": true,
+            "publish": true,
+            "sync": true
+        },
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+              "name": "Django runserver",
+              "type": "python",
+              "request": "launch",
+              "program": "${workspaceFolder}/manage.py",
+              "args": ["runserver"],
+              "django": true,
+              "justMyCode": true,
+              // "python": "${workspaceFolder}/.venv/bin/python",
+              // "stopOnEntry": false,
+              // "env": {
+              //   "DJANGO_DB_NAME": "aroounddb",
+              //   "DJANGO_DB_USER": "codeslave",
+              //   "DJANGO_DB_PASSWORD": "codeslave",
+              //   "DJANGO_DB_HOST": "172.17.0.2",
+              //   "DJANGO_DB_PORT": "5432",
+              //   "DJANGO_DEBUG": "True",
+              //   "DJANGO_SETTINGS_MODULE": "settings",
+              // },
+            },
+            {
+              "name": "Django shell",
+              "type": "python",
+              "request": "launch",
+              "program": "${workspaceFolder}/manage.py",
+              "args": ["shell"],
+              "django": true,
+              "justMyCode": true,
+              // "python": "${workspaceFolder}/.venv/bin/python",
+              // "stopOnEntry": false,
+              // "env": {
+              //   "DJANGO_DB_NAME": "aroounddb",
+              //   "DJANGO_DB_USER": "codeslave",
+              //   "DJANGO_DB_PASSWORD": "codeslave",
+              //   "DJANGO_DB_HOST": "172.17.0.2",
+              //   "DJANGO_DB_PORT": "5432",
+              //   "DJANGO_DEBUG": "True",
+              //   "DJANGO_SETTINGS_MODULE": "settings",
+              // },
+            },
+        ],
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Django Show Migrations",
+                "type": "shell",
+                "detail": "Show migrations for whole django project.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "showmigrations",
+                ],
+                // just skip prompt for matchers
+                "problemMatcher": [],
+                "options": {
+                    "cwd": "${workspaceFolder}",
+                },
+            },
+            {
+                "label": "Django Makemigrations",
+                "type": "shell",
+                "detail": "Make migrations for recent model changes on each Django app.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "makemigrations",
+                ],
+                // just skip prompt for matchers
+                "problemMatcher": [],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+            },
+            {
+                "label": "Django Migrate",
+                "type": "shell",
+                "detail": "Apply migrations for whole django project.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "migrate",
+                ],
+                // just skip prompt for matchers
+                "problemMatcher": [],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+            },
+            // {
+            //     "label": "Django's `migrate` for apps without migrations",
+            //     "type": "shell",
+            //     "detail": "Apply migrations for apps without migrations, which currently **all** apps now (development).",
+            //     "command": "${config:python.defaultInterpreterPath}",
+            //     "args": [
+            //         "manage.py",
+            //         "migrate",
+            //         "--run-syncdb",
+            //     ],
+            //     "problemMatcher": [],
+            //     "options": {
+            //         "cwd": "${workspaceFolder}"
+            //     },
+            // },
+            {
+                "label": "Django Test",
+                "type": "shell",
+                "detail": "Discover and run tests in the specified modules or the current directory.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "test",
+                ],
+                // just skip prompt for matchers
+                "problemMatcher": [],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+            },
+            {
+                "label": "Example: echo hello",
+                "command": "echo hello",
+                "type": "shell",
+                "args": [],
+                "problemMatcher": [
+                    "$tsc"
+                ],
+                "presentation": {
+                    "reveal": "always"
+                },
+                "group": "build",
+            },
+            {
+                "label": "`silk`: Load demos fixture",
+                "type": "shell",
+                "detail": "Load every (as of commit's date) fixture file.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "loaddata",
+                    "demo_dakun_part_1.yaml",
+                    "demo_dunit_part_2.yaml",
+                    "demo_dcoa_part_3.yaml",
+                    "demo_d_jurnal_part_4_atau_akhir.yaml",
+                ],
+                "problemMatcher": [],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+            },
+            {
+                "label": "Django Create Superuser: for dev environment",
+                "type": "shell",
+                "detail": "Create Django superuser using DJANGO_SUPERUSER_PASSWORD environment variable.",
+                "command": "${config:python.defaultInterpreterPath}",
+                "args": [
+                    "manage.py",
+                    "createsuperuser",
+                    "--no-input",
+                    "--username", "dev_admin_DELETE",
+                    "--email", "dev_admin_DELETE@example.com"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}",
+                    "env": {
+                        "DJANGO_SUPERUSER_PASSWORD": "dev_password_DELETE"
+                    }
+                },
+                "problemMatcher": []
+            },
+        ],
+        "inputs": [],
+    },
+}
