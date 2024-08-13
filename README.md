@@ -1,2 +1,3 @@
-# bal_simple_finance_app_with_django_and_htmx
+# Bal Simple Finance App with `Django` and `htmx`
+
 an `rfl` singleton.
