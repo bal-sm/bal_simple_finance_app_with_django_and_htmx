@@ -10,7 +10,13 @@
         </div>
 
         <div class="col-3 align-self-end">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"
+                hx-get="{% url 'create-contact' %}"
+                hx-target="#contact-forms"
+                hx-swap="beforeend"
+            >
+                Submit
+            </button>
         </div>
     </div>
 </form>
