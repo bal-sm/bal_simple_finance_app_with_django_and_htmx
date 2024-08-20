@@ -11,7 +11,7 @@ def index(request):
 
 
 def create_contact_form(request):
-    context = {}
+    context = {"form": ContactForm()}
 
     if request.method == "POST":
         pass
