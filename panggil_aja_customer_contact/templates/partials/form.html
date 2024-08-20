@@ -1,6 +1,7 @@
 <form hx-post="{% url 'create_contact_form' %}"
     hx-target="#contact-list"
     hx-swap="beforeend"
+    hx-on:htmx:after-request="this.remove()"
 >
     <div class="row">
         <div class="col-4 col-md-3">
