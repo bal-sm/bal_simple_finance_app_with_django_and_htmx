@@ -11,9 +11,18 @@ def index(request):
 
 
 def create_contact_form(request):
-    context = {"form": ContactForm()}
+    context = {}
 
     if request.method == "POST":
-        pass
+        form = ContactForm(request.POST or None)
+
+        if form.is_valid():
+            contact = form.save()
+            context["contact"] = contact
+            return render(request, "partials/contact.html", context)
+
+    else:
+        form = ContactForm()
+        context["form"] = form
 
     return render(request, "partials/form.html", context)
