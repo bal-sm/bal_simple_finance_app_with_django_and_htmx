@@ -1,4 +1,7 @@
-<form hx-post="{% url 'create_contact_form' %}">
+<form hx-post="{% url 'create_contact_form' %}"
+    hx-target="#contact-list"
+    hx-swap="beforeend"
+>
     <div class="row">
         <div class="col-4 col-md-3">
             <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
