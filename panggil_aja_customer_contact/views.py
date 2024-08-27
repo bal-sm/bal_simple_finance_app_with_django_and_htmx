@@ -24,8 +24,10 @@ def create_contact_form(request):
             context["contact"] = contact
             return render(request, "prefilled_partials/contact.html", context)
 
-    else:
+    elif request.method == "GET" and request.GET.get("add-contact"):
         form = ContactForm()
         context["form"] = form
+        return render(request, "prefilled_partials/form.html", context)
 
-    return render(request, "prefilled_partials/form.html", context)
+    else:
+        raise (ValueError("Invalid request method"))
