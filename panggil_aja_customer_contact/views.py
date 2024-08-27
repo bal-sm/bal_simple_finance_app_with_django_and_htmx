@@ -5,14 +5,6 @@ from .models import Contact
 # Create your views here.
 
 
-def index(request):
-    context = {
-        "form": ContactForm(),
-        "contacts": Contact.objects.all(),
-    }
-    return render(request, "index.html", context)
-
-
 def create_contact_form(request):
     context = {}
 
@@ -24,10 +16,12 @@ def create_contact_form(request):
             context["contact"] = contact
             return render(request, "prefilled_partials/contact.html", context)
 
-    elif request.method == "GET" and request.GET.get("add-contact"):
+    else:
         form = ContactForm()
         context["form"] = form
-        return render(request, "prefilled_partials/form.html", context)
+        context["contacts"] = Contact.objects.all()
 
-    else:
-        raise (ValueError("Invalid request method"))
+        if request.method == "GET" and request.GET.get("add-contact"):
+            return render(request, "prefilled_partials/form.html", context)
+        else:
+            return render(request, "index.html", context)
