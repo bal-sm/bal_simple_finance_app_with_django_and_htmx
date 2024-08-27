@@ -22,10 +22,10 @@ def create_contact_form(request):
         if form.is_valid():
             contact = form.save()
             context["contact"] = contact
-            return render(request, "partials/contact.html", context)
+            return render(request, "prefilled_partials/contact.html", context)
 
     else:
         form = ContactForm()
         context["form"] = form
 
-    return render(request, "partials/form.html", context)
+    return render(request, "prefilled_partials/form.html", context)

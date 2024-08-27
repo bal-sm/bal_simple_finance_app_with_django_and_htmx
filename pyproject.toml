@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bal-simple-finance-app-with-django-and-htmx"
-version = "0.2"
+version = "0.3"
 description = ""
 authors = ["Mahmuda <bal.mahmuda@gmail.com>"]
 readme = "README.md"
@@ -9,6 +9,7 @@ readme = "README.md"
 python = "~3.12"
 Django = "~5.1"
 django-htmx = "~1.19.0"
+django-cotton = "~0.9.32"
 
 
 [build-system]
