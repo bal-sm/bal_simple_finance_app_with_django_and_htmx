@@ -5,5 +5,6 @@
     hx-on:htmx:after-request="this.remove()"
     hx-trigger="click from:#submit-all"
 >
-    <c-name-field :name_field="form.name">
+    <c-form-field :form_field="form.name"/>
+    <c-form-field :form_field="form.phone_number"/>
 </c-form>
