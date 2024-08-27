@@ -139,8 +139,8 @@ GitHub.sublime-settings
 *.code-workspace
 
 # Poetry
-poetry.lock
-# soalnya mending set-sat-set aja deh.
+#poetry.lock
+# ~~soalnya mending set-sat-set aja deh.~~ jk.
 
 # Bal Ignore
 bal_temp
