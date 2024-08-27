@@ -5,7 +5,7 @@
 <h1 class="mb-4 text-primary">Add Contacts</h1>
 
 <div id="contact-forms">
-    {% include 'partials/form.html' %}
+    {% include 'prefilled_partials/form.html' %}
 
     {% comment %} * submit di `form.html` teh, add ke-sini. {% endcomment %}
 </div>
@@ -26,7 +26,7 @@
 
 <ul id="contact-list">
     {% for contact in contacts %}
-        {% include 'partials/contact.html' %}
+        {% include 'prefilled_partials/contact.html' %}
     {% endfor %}
 </ul>
 
