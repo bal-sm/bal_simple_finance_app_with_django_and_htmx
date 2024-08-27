@@ -1,1 +1,8 @@
-<c-form/>
+<c-form
+    hx-post="{% url 'create_contact_form' %}"
+    hx-target="#contact-list"
+    hx-swap="beforeend"
+    hx-on:htmx:after-request="this.remove()"
+    hx-trigger="click from:#submit-all"
+>
+</c-form>

@@ -1,9 +1,4 @@
-<form hx-post="{% url 'create_contact_form' %}"
-    hx-target="#contact-list"
-    hx-swap="beforeend"
-    hx-on:htmx:after-request="this.remove()"
-    hx-trigger="click from:#submit-all"
->
+<form>
     <div class="row">
         <div class="col-4 col-md-3">
             <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
