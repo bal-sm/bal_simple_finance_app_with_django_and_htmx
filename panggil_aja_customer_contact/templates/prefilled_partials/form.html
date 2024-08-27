@@ -5,13 +5,15 @@
     hx-on:htmx:after-request="this.remove()"
     hx-trigger="click from:#submit-all"
 >
-    <div class="col-4 col-md-3">
-        <c-form-field :form_field="form.name"/>
-    </div>
-    <div class="col-4 col-md-3">
-        <c-form-field :form_field="form.phone_number"/>
-    </div>
-    <div class="col-3 align-self-end">
-        <c-button class="btn btn-danger" hx-on:click="this.closest('form').remove()"/>
+    <div class="row">
+        <div class="col-4 col-md-3">
+            <c-form-field :form_field="form.name"/>
+        </div>
+        <div class="col-4 col-md-3">
+            <c-form-field :form_field="form.phone_number"/>
+        </div>
+        <div class="col-3 align-self-end">
+            <c-button class="btn btn-danger" hx-on:click="this.closest('form').remove()"/>
+        </div>
     </div>
 </c-form>
