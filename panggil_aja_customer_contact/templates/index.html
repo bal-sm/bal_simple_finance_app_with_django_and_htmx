@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4 text-primary">Add Contacts</h1>
+
+<div id="contact-forms">
+    {% include 'partials/form.html' %}
+
+    {% comment %} * submit di `form.html` teh, add ke-sini. {% endcomment %}
+</div>
+
+<div class="my-4">
+    <button type="button" class="btn btn-success me-2"
+        hx-get="{% url 'create_contact_form' %}"
+        hx-target="#contact-forms"
+        hx-swap="beforeend"
+    >
+        + Add Contact
+    </button>
+    <button type="button" class="btn btn-primary" id="submit-all"
+    >
+        Submit all
+    </button>
+</div>
+
+<ul id="contact-list">
+    {% for contact in contacts %}
+        {% include 'partials/contact.html' %}
+    {% endfor %}
+</ul>
+
+{% endblock %}
